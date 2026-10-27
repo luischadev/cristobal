@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Heading from "../components/ui/Heading.astro";
+import Button from "../components/ui/Button.astro";
+import Inquiry from "../components/sections/Inquiry.astro";
+
+const bloques = [
+  "Revisión y preparación de contratos y documentación laboral de acuerdo con las necesidades de la empresa.",
+  "Revisión de situaciones relacionadas con el término de la relación laboral y sus efectos jurídicos.",
+  "Asesoría frente a situaciones relacionadas con fiscalizaciones, comparendos y multas.",
+  "Asesoría jurídica relacionada con las obligaciones laborales y situaciones de acoso laboral, acoso sexual y violencia en el trabajo.",
+  "Representación y defensa judicial en controversias laborales.",
+  "Revisión de antecedentes y apoyo jurídico en la preparación de documentación relacionada con el término de la relación laboral.",
+  "Evaluación de los riesgos laborales específicos de la empresa, revisar sus políticas internas y detectar posibles brechas de cumplimiento.",
+  "Asesoramiento en materias que derivan de negociaciones colectivas regladas y no regladas con sindicatos.",
+];
+---
+
+<Layout
+  title="Abogado laboral para empresas"
+  description="Asesoría laboral para empresas: contratos, finiquitos, fiscalizaciones y litigios."
+>
+  <section class="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-20">
+    <Heading level={1} class="text-ink">Abogado laboral para empresas</Heading>
+    <p class="mt-5 leading-relaxed">
+      Las decisiones laborales también requieren anticipación. Nuestro equipo enfocado en la defensa de la empresa se encarga de proteger el patrimonio del negocio y estructurar la contención de riesgos.
+    </p>
+    <ul class="mt-6 flex flex-wrap gap-2 text-sm">
+      <li class="border border-line px-3 py-1">Elaboración y revisión de contratos</li>
+      <li class="border border-line px-3 py-1">Asesoría preventiva</li>
+      <li class="border border-line px-3 py-1">Cotizaciones previsionales</li>
+      <li class="border border-line px-3 py-1">Asesoría corporativo-laboral</li>
+    </ul>
+  </section>
+
+  <section class="bg-paper">
+    <div class="mx-auto grid max-w-6xl gap-6 px-5 py-16 md:grid-cols-2 md:px-8">
+      {
+        bloques.map((texto) => (
+          <p class="border border-line bg-white p-6 leading-relaxed">{texto}</p>
+        ))
+      }
+    </div>
+    <div class="mx-auto flex max-w-6xl flex-wrap gap-3 px-5 pb-16 md:px-8">
+      <Button href="/contacto">Solicitar contacto</Button>
+      <Button href="/ley-karin-asesoria-laboral-para-empresas">Ley Karin para empresas</Button>
+    </div>
+  </section>
+  <Inquiry />
+</Layout>

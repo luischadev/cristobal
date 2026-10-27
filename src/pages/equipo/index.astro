@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Heading from "../../components/ui/Heading.astro";
+import Inquiry from "../../components/sections/Inquiry.astro";
+import { getCollection } from "astro:content";
+
+const people = (await getCollection("team")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout
+  title="Abogados especialistas en Derecho Laboral"
+  description="Conoce a los profesionales de Raggio & Valderrama y sus áreas de experiencia."
+>
+  <section class="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-20">
+    <Heading level={1} class="text-ink">Abogados especialistas en Derecho Laboral</Heading>
+    <Heading class="mt-6">Experiencia jurídica detrás de cada estrategia</Heading>
+    <p class="mt-5 leading-relaxed">
+      Raggio & Valderrama está integrado por abogados con experiencia en Derecho Laboral, litigación y asesoría a trabajadores, empresas y empleadores en Santiago y todo Chile.
+    </p>
+    <p class="mt-4 leading-relaxed">
+      Conoce a los profesionales que forman parte del estudio y sus áreas de experiencia.
+    </p>
+  </section>
+  <section class="bg-paper">
+    <div class="mx-auto grid max-w-6xl gap-6 px-5 py-16 sm:grid-cols-2 md:px-8 lg:grid-cols-3">
+      {
+        people.map((person) => (
+          <a class="block border border-line bg-white p-6 hover:border-brand" href={`/equipo/${person.id}`}>
+            <h2 class="font-serif text-xl font-bold text-ink">{person.data.name}</h2>
+            <p class="mt-1 text-sm text-brand">{person.data.role}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+  <Inquiry />
+</Layout>

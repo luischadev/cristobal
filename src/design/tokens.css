@@ -1,0 +1,19 @@
+@theme {
+  --font-sans: "Urbanist", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", "Source Serif Pro", ui-serif, Georgia, serif;
+
+  --color-brand: #a0876e;
+  --color-brand-dark: #7f6b56;
+  --color-ink: #020404;
+  --color-body: #3f4245;
+  --color-muted: #6b6e71;
+  --color-paper: #f6f3ee;
+  --color-line: #ddd4c8;
+  --color-footer: #2f2a23;
+  --color-footer-text: #d4cdc4;
+
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.15;
+  --text-title: 1.75rem;
+  --text-title--line-height: 1.25;
+}

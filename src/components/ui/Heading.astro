@@ -1,0 +1,19 @@
+---
+type Props = {
+  level?: 1 | 2 | 3;
+  tone?: "ink" | "light";
+  class?: string;
+};
+const { level = 2, tone = "ink", class: className } = Astro.props;
+const Tag = `h${level}` as const;
+const sizes = {
+  1: "font-sans text-display font-semibold tracking-tight text-balance",
+  2: "font-serif text-title font-bold text-balance",
+  3: "font-serif text-xl font-bold",
+};
+const tones = { ink: "text-ink", light: "text-white" };
+---
+
+<Tag class:list={[sizes[level], tones[tone], className]}>
+  <slot />
+</Tag>

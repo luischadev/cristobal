@@ -1,0 +1,29 @@
+---
+type Variant = "gold" | "gold-solid" | "light";
+type Props = {
+  href: string;
+  variant?: Variant;
+  class?: string;
+};
+const { href, variant = "gold", class: className } = Astro.props;
+
+const variants: Record<Variant, string> = {
+  gold:
+    "border-brand text-brand hover:bg-brand hover:text-white",
+  "gold-solid":
+    "border-brand bg-brand text-white hover:bg-brand-dark hover:border-brand-dark",
+  light:
+    "border-white text-white hover:bg-white hover:text-ink",
+};
+---
+
+<a
+  href={href}
+  class:list={[
+    "inline-flex items-center justify-center border px-6 py-3 text-sm font-medium tracking-wide uppercase transition-colors",
+    variants[variant],
+    className,
+  ]}
+>
+  <slot />
+</a>

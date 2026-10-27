@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Heading from "../components/ui/Heading.astro";
+import Button from "../components/ui/Button.astro";
+import Inquiry from "../components/sections/Inquiry.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const services = await getCollection("services");
+  return services.map((service) => ({
+    params: { slug: service.id },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+const back = service.data.audience === "empresas" ? "/empresas" : "/trabajadores";
+---
+
+<Layout title={service.data.title} description={service.data.description}>
+  <article class="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-20">
+    <Heading level={1} class="text-ink">{service.data.title}</Heading>
+    <div class="mt-6 space-y-4 leading-relaxed">
+      <Content />
+    </div>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <Button href="/contacto">Quiero evaluar mi situación</Button>
+      <a class="inline-flex items-center text-sm text-brand hover:underline" href={back}>
+        Volver
+      </a>
+    </div>
+  </article>
+  <Inquiry />
+</Layout>

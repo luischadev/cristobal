@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Heading from "../../components/ui/Heading.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+---
+
+<Layout title="Blog" description="Artículos de Raggio & Valderrama Abogados.">
+  <section class="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-20">
+    <Heading level={1} class="text-ink">Blog</Heading>
+    {
+      posts.length === 0 ? (
+        <p class="mt-6 leading-relaxed">
+          Pronto publicaremos artículos sobre Derecho Laboral. El listado usa un
+          template único: cada entrada será un archivo de contenido, no una página nueva.
+        </p>
+      ) : (
+        <ul class="mt-10 grid gap-8">
+          {posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}`} class="group">
+                <h2 class="font-serif text-2xl font-bold text-ink group-hover:text-brand">
+                  {post.data.title}
+                </h2>
+                <p class="mt-2 text-sm text-muted">
+                  {post.data.publishedAt.toLocaleDateString("es-CL")}
+                </p>
+                <p class="mt-2 leading-relaxed">{post.data.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</Layout>

@@ -1,0 +1,33 @@
+---
+import ContactForm from "../../islands/ContactForm";
+import { waLink } from "../../data/site";
+---
+
+<section class="bg-paper">
+  <div class="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-20">
+    <div>
+      <p class="max-w-md font-serif text-2xl font-bold leading-snug text-ink">
+        No todos los conflictos laborales se resuelven de la misma manera.
+      </p>
+      <p class="mt-4 max-w-md leading-relaxed">
+        Cada caso tiene antecedentes, plazos, documentos y circunstancias particulares.
+        Por eso nuestro primer objetivo es comprender la situación antes de definir una estrategia.
+      </p>
+      <p class="mt-4 font-medium text-ink">Cuéntanos qué ocurrió.</p>
+      <p class="mt-8 text-sm font-semibold uppercase tracking-wide text-ink">
+        ¿Qué ocurre después de enviar la consulta?
+      </p>
+      <ol class="mt-3 list-decimal space-y-1 pl-5 text-sm leading-relaxed">
+        <li>Recibimos tus antecedentes iniciales.</li>
+        <li>Revisamos la información entregada.</li>
+        <li>Determinamos qué antecedentes adicionales pueden ser necesarios.</li>
+        <li>El equipo define la forma de continuar según las características del caso.</li>
+      </ol>
+      <p class="mt-6 text-sm">
+        También puedes contactarnos directamente por
+        <a class="text-brand underline-offset-2 hover:underline" href={waLink()}>WhatsApp</a>.
+      </p>
+    </div>
+    <ContactForm client:idle />
+  </div>
+</section>

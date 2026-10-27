@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Heading from "../components/ui/Heading.astro";
+import Inquiry from "../components/sections/Inquiry.astro";
+import { site } from "../data/site";
+---
+
+<Layout title="Contacto" description="Cuéntanos tu caso. Atención en Las Condes, Santiago.">
+  <section class="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-20">
+    <Heading level={1} class="text-ink">Cuéntanos tu caso</Heading>
+    <p class="mt-4 leading-relaxed">{site.address}</p>
+    <p class="mt-2 text-sm text-muted">Sólo previa confirmación de cita</p>
+  </section>
+  <Inquiry />
+</Layout>
