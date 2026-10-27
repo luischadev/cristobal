@@ -1,0 +1,13 @@
+---
+description: Stack y criterios de RYV — sitio corporativo Astro
+alwaysApply: true
+---
+
+# RYV
+
+Sitio corporativo de un estudio de abogados.
+
+- Astro + TypeScript. React solo en islas. Tailwind v4 + tokens en `src/design/`. pnpm.
+- `tokens → ui → sections → pages`.
+- Blog, equipo y servicios: archivos de contenido + un template `[slug]`. No una página HTML por entrada.
+- No inventar reglas nuevas salvo que eviten un error real y repetible.

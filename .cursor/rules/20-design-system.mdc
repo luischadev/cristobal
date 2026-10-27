@@ -1,0 +1,23 @@
+---
+description: Tokens y componentes UI de RYV
+globs: src/design/**,src/components/**
+alwaysApply: false
+---
+
+# Design system
+
+Tokens en `src/design/`. Tailwind solo los consume.
+
+Si falta un color o un espacio, se añade el token y después el componente.
+
+- `ui/` — Button, Heading, Stack, Card. Sin copy de negocio.
+- `sections/` — Hero, listados, bloques de página. Componen `ui/`.
+- Variantes por props, no clases copiadas ni hex sueltos.
+
+```tsx
+// no
+<p className="text-[#1a1a1a] mt-[18px]">Equipo</p>
+
+// sí
+<Heading level={2}>Equipo</Heading>
+```
